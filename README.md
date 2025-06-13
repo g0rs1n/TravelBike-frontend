@@ -80,6 +80,9 @@ npm run dev
 yarn dev
 ```
 
+### After starting the frontend, make sure your backend server is also running.
+### To do that, switch to the TravelBike backend repository and follow its setup instructions.
+
 ---
 
 # Thank you for checking out TravelBike! ✨
