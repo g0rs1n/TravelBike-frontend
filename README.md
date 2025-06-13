@@ -41,7 +41,7 @@ Discover popular and hidden bike routes, explore sights along the way, and creat
 
 ```
 git clone https://github.com/g0rs1n/TravelBike-frontend.git
-cd project-name
+cd TravelBike-frontend
 ```
 
 ## 2. Install dependencies:
