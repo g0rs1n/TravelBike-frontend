@@ -22,11 +22,14 @@ Discover popular and hidden bike routes, explore sights along the way, and creat
 - **[Next.js](https://nextjs.org/) (App Router + SSR)**
 - **[TypeScript](https://www.typescriptlang.org/)**
 - **[Tailwind CSS](https://tailwindcss.com/)**
-- **[TanStack Query](https://tanstack.com/query/latest) - data fetching and caching** 
+- **[TanStack Query](https://tanstack.com/query/latest) - data fetching and caching**
+- **[Axios](https://axios-http.com/) - promise-based HTTP client**
 - **[Socket.io](https://socket.io/) - real-time WebSocket communication** 
 - **[React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) – form validation**
 - **[Leaflet](https://leafletjs.com/) – interactive maps**
+- **[React Leaflet](https://react-leaflet.js.org/)**
 - **[Zustand](https://zustand-demo.pmnd.rs/) - state management**
+- **[Sonner](https://sonner.emilkowal.dev/) - toast notifications library**
 
 ---
 
