@@ -1,7 +1,7 @@
 # 🚴‍♂️TravelBike - EuroBike Planner
 
-**A web application for planning cycling trips across Europe.  
-Discover popular and hidden bike routes, explore sights along the way, and create travel groups to collaboratively plan routes and chat with your friends in real time.**
+**A collaborative cycling trip planner for Europe.  
+Join or team up with friends to plan cycling trips across Europe. Explore routes together in real time using interactive maps, shared editing, and stay connected with group chat.**
 
 ---
 
