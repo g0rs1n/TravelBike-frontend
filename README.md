@@ -81,7 +81,7 @@ yarn dev
 ```
 
 ### After starting the frontend, make sure your backend server is also running.
-### To do that, switch to the TravelBike backend repository and follow its setup instructions.
+### To do that, switch to the [TravelBike backend repository](https://github.com/g0rs1n/TravelBike-backend) and follow its setup instructions.
 
 ---
 
