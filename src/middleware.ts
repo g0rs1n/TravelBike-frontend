@@ -4,9 +4,10 @@ import {
     NextRequest 
 } from "next/server";
 import { PAGE_ROUTES } from "./lib/config/pages-url.config";
+import { API_ROUTES } from "./lib/constants/apiRoutes.constants";
 
 const BASE_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
-const VERIFY_AUTH_URL = `${BASE_SERVER_URL}/auth/verify`
+const VERIFY_AUTH_URL = `${BASE_SERVER_URL}/${API_ROUTES.AUTH.VERIFY}`
 
 export default async function middleware (request: NextRequest) {
 
