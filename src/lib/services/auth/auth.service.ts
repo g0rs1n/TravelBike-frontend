@@ -6,6 +6,7 @@ class AuthService {
 
     private readonly REGISTER_URL = `${API_ROUTES.AUTH.REGISTER}`
     private readonly LOGIN_URL = `${API_ROUTES.AUTH.LOGIN}`
+    private readonly VERIFY_AUTH_URL = `${API_ROUTES.AUTH.VERIFY}`
 
     async register (data: IRegisterData): Promise<{message: string}> {
         const response = await axiosClient.post(this.REGISTER_URL, data)
@@ -16,6 +17,7 @@ class AuthService {
         const response = await axiosClient.post(this.LOGIN_URL, data)
         return response.data
     }
+
 }
 
 export const authService = new AuthService()

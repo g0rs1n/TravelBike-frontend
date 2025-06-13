@@ -16,7 +16,7 @@ interface ErrorResponse {
 export function catchError (
     error: unknown,
     customErrorMessage?: string
-): never {
+) {
     const axiosError = error as AxiosError<ErrorResponse>
     const responseError = axiosError.response?.data
 
@@ -26,6 +26,6 @@ export function catchError (
             : responseError?.message?.message) ||
         customErrorMessage ||
         "Something went wrong"
-
+    
     throw new Error(messageError)
 }
