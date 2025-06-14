@@ -16,6 +16,7 @@ import {
 import {toast} from 'sonner'
 import { authService } from '@/lib/services/auth/auth.service'
 import { catchError } from '@/lib/api/error'
+import { sanitizeService } from '@/lib/services/sanitize/sanitize.service'
 
 export default function Auth () {
 
@@ -50,7 +51,8 @@ export default function Auth () {
 
     const onSubmit: SubmitHandler<IAuthForm> = async (data) => {
         if (isValid) {
-            toast.promise(mutateAsync(data), {
+            const newSanitizeData = sanitizeService.sanitizeObject(data)
+            toast.promise(mutateAsync(newSanitizeData), {
                 loading: isLoginForm ? "Logging in..." : "Registering...",
                 success: (res) => res.message,
                 error: (error) => error.message

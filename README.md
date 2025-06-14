@@ -30,6 +30,7 @@ Join or team up with friends to plan cycling trips across Europe. Explore routes
 - **[React Leaflet](https://react-leaflet.js.org/)**
 - **[Zustand](https://zustand-demo.pmnd.rs/) - state management**
 - **[Sonner](https://sonner.emilkowal.dev/) - toast notifications library**
+- **[DOMPurify](https://github.com/cure53/DOMPurify) – sanitize HTML to prevent XSS**
 
 ---
 
