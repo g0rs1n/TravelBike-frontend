@@ -5,6 +5,7 @@ import {useMutation} from '@tanstack/react-query'
 import Heading from '@/components/ui/Heading'
 import Fields from '@/components/ui/fields/Fields'
 import Button from '@/components/ui/buttons/Button'
+import Line from '@/components/ui/line/Line'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { 
@@ -82,8 +83,9 @@ export default function Auth () {
                     '
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div className='flex w-full'>
+                    <div className='flex flex-col items-center w-full'>
                         <Heading title={isLoginForm ? "Sign in to your account" : "Create an account"}/>
+                        <Line/>
                     </div>
                     {
                         !isLoginForm &&

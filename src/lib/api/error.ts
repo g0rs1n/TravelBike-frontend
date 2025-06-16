@@ -16,10 +16,10 @@ interface ErrorResponse {
 export function catchError (
     error: unknown,
     customErrorMessage?: string
-) {
+):never {
     const axiosError = error as AxiosError<ErrorResponse>
     const responseError = axiosError.response?.data
-
+    console.log(responseError)
     const messageError =
         (typeof responseError?.message === 'string'
             ? responseError.message

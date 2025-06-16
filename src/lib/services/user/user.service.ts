@@ -5,7 +5,7 @@ import { IUserData } from "@/lib/types/types";
 
 class UserService {
     
-    private readonly BASE_URL = `${API_ROUTES.USER.GET}`
+    private BASE_URL = API_ROUTES.USER.GET
 
     async getUser () {
         try {
