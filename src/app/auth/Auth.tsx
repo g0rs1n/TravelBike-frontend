@@ -18,6 +18,7 @@ import {toast} from 'sonner'
 import { authService } from '@/lib/services/auth/auth.service'
 import { catchError } from '@/lib/api/error'
 import { sanitizeService } from '@/lib/services/sanitize/sanitize.service'
+import { PAGE_ROUTES } from '@/lib/config/pages-url.config'
 
 export default function Auth () {
 
@@ -42,7 +43,7 @@ export default function Auth () {
             authService.login(data as ILoginData) :
             authService.register(data as IRegisterData),
         onSuccess: () => {
-            replace('/app')
+            replace(PAGE_ROUTES.HOME)
             reset()
         },
         onError: (error) => {
