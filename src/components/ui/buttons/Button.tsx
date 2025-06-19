@@ -16,9 +16,9 @@ export default function Button (props : IButtonProps) {
             <button
                 disabled={disabled}
                 className="
-                    py-[6px] px-[10px] border-2 border-black rounded-lg mt-[10px] cursor-pointer
-                    bg-white text-black 
-                    hover:bg-black hover:text-white hover:border-white
+                    py-[6px] px-[10px] border-2 border-background-secondary rounded-lg mt-[10px] cursor-pointer
+                    bg-background-secondary text-white font-2xl
+                    hover:bg-transparent hover:text-black hover:border-2
                     transition-colors duration-300
                 "
             >

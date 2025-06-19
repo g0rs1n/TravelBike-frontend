@@ -79,7 +79,7 @@ export default function Auth () {
             <div className='flex h-full'>
                 <form
                     className='
-                        w-sm m-auto p-5 rounded-xl border-2 border-black shadow-xl 
+                        w-sm m-auto p-5 rounded-xl border-2 border-background-secondary shadow-xl 
                         opacity-0 animate-[fadeIn_0.5s_ease-in-out_forwards]
                     '
                     onSubmit={handleSubmit(onSubmit)}

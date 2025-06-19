@@ -27,8 +27,8 @@ export default function LogoLayout (props: ILogoLayoutProps) {
                             src={userData.avatarPath}
                             className="rounded-full"
                             alt="user_icon"
-                            width={50}
-                            height={50}
+                            width={55}
+                            height={55}
                             unoptimized
                         />
                     </Link>

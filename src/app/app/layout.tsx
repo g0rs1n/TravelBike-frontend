@@ -48,13 +48,13 @@ export default function AppLayout (
     return (
         <>
             <div
-                className="flex flex-col h-full border-1 border-red-500"
+                className="flex flex-col h-full"
             >
                 <Header
                     userData={data}
                 />
                 <div
-                    className="flex h-full border-2 border-blue-500"
+                    className="flex h-full"
                 >
                     <Sidebar/>
                     {children}

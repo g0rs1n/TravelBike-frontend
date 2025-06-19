@@ -31,7 +31,7 @@ export default function Fields (props: IFieldsProps) {
             id={id}
             type={type}
             placeholder={placeholder}
-            className="border-1 rounded-sm px-[3px] py-[1px]"
+            className="border-1 border-background-secondary rounded-sm px-[3px] py-[1px] focus:border-text"
             autoComplete="off"
             {
                 ...(register && register(name, validationRules))

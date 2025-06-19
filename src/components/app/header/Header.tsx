@@ -4,7 +4,6 @@ import Link from "next/link"
 import { PAGE_ROUTES } from "@/lib/config/pages-url.config"
 import Heading from "@/components/ui/Heading"
 import LogoLayout from "./LogoLayout/LogoLayout"
-import Buttons from "./Buttons/Buttons"
 import { IUserData } from "@/lib/types/types"
 
 interface IHeaderProps {
@@ -20,7 +19,7 @@ export default function Header (props: IHeaderProps) {
     return (
         <>
             <div
-                className="flex items-center justify-between px-5 py-5"
+                className="flex border-b-2 border-background-secondary items-center justify-between px-8 py-5"
             >
                 <div>
                     <Link href={PAGE_ROUTES.HOME}>
@@ -30,12 +29,11 @@ export default function Header (props: IHeaderProps) {
                     </Link>
                 </div>
                 <div
-                    className="flex items-center gap-[15px]"
+                    className="flex items-center"
                 >
                     <LogoLayout
                         userData={userData}
                     />
-                    <Buttons/>
                 </div>
             </div>
         </>

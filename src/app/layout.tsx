@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Nunito } from "next/font/google";
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
@@ -9,10 +9,10 @@ import {Toaster} from 'sonner'
 import QueryProvider from "@/lib/providers/QueryProvider";
 import "../styles/globals.scss"
 
-const lato = Lato({
-  variable: "--font-lato",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
 })
 
 export const metadata: Metadata = {
@@ -33,10 +33,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lato.variable}`}>
+      <body className={`${nunito.variable}`}>
           <QueryProvider>
             {children}
-            <Toaster/>
+            <Toaster
+              toastOptions={{
+                style: {
+                  background: '#F4F5E9',
+                  border: '1px solid #92947b',
+                  color: '#343a40',
+                }
+              }}
+            />
           </QueryProvider>
       </body>
     </html>

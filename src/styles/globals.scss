@@ -2,10 +2,11 @@
 
 @theme {
 
-    --color-text: #000;
-    --color-background: #fff;
+    --color-text: #343a40;
+    --color-background: #F4F5E9;
+    --color-background-secondary: #92947b;
     
-    --font-lato: "Lato", sans-serif;
+    --font-nunito: "Nunito", sans-serif;
 
     --font-size: 16px;
 
@@ -24,7 +25,7 @@ body,html,#root {
 }
 
 body,html{
-    font-family: var(--font-lato);
+    font-family: var(--font-nunito);
     background-color: var(--color-background);
     color: var(--color-text);
     font-size: var(--font-size);
