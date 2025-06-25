@@ -1,11 +1,19 @@
 
+import Link from "next/link"
 import { useState } from "react"
 
-const navItems = ["Groups"]
+interface INavItems {
+    title: string;
+    href: string;
+}
+
+const navItems = [
+    {title: "Groups", href: "groups"},
+]
 
 export default function NavMenu () {
 
-    const [navTitles] = useState<string[]>(navItems)
+    const [navTitles] = useState<INavItems[]>(navItems)
 
     return (
         <>
@@ -16,11 +24,12 @@ export default function NavMenu () {
                     className="flex flex-col gap-[10px] items-center w-full h-full"
                 >   
                     {
-                        navTitles.map((title) => {
+                        navTitles.map((item) => {
                             return (
                                 <NavItem
-                                    key={title}
-                                    title={title}
+                                    key={item.title}
+                                    title={item.title}
+                                    href={item.href}
                                 />
                             )
                         })
@@ -33,21 +42,25 @@ export default function NavMenu () {
 
 interface INavItem {
     title: string;
+    href: string;
 }
 
 function NavItem (props: INavItem) {
 
     const {
-        title
+        title,
+        href
     } = props
 
     return (
-        <li className="relative cursor-pointer text-xl font-semibold group">
-            {title}
-            <div
-                className="absolute bottom-0 left-0 h-[1.5px] w-0 bg-text
-                transition-all duration-300 group-hover:w-full"
-            />
-        </li>
+        <Link href={`/app/${href}`}>
+            <li className="relative text-xl font-semibold group">
+                {title}
+                <div
+                    className="absolute bottom-0 left-0 h-[1.5px] w-0 bg-text
+                    transition-all duration-300 group-hover:w-full"
+                />
+            </li>
+        </Link>
     )
 }

@@ -5,6 +5,9 @@ class ROUTES {
 
     HOME = this.root
     AUTH = '/auth'
+    APP = {
+        GROUPS: `${this.root}/groups`
+    }
     
 }
 

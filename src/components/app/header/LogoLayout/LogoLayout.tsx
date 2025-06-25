@@ -22,7 +22,7 @@ export default function LogoLayout (props: ILogoLayoutProps) {
                 <div
                     className="shadow-md rounded-full"
                 >
-                    <Link href={''}>
+                    <Link href={`${PAGE_ROUTES.HOME}/${userData.username}`}>
                         <Image
                             src={userData.avatarPath}
                             className="rounded-full"

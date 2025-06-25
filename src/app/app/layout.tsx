@@ -1,16 +1,22 @@
 "use client"
 
+import { usePathname } from "next/navigation"
+import { useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import Header from "@/components/app/header/Header"
 import Sidebar from "@/components/app/sidebar/Sidebar"
 import { userService } from "@/lib/services/user/user.service"
 import { IUserData } from "@/lib/types/types"
-import ClipLoader from "react-spinners/ClipLoader"
+import Loader from "@/components/ui/loader/Loader"
 import GlobalError from "../error"
+import { socket, SocketContext } from "@/lib/api/socket/socket"
+import { PAGE_ROUTES } from "@/lib/config/pages-url.config"
 
 interface IAuthLayoutProps {
     children: React.ReactNode
 }
+
+const pattern = new RegExp(`^${PAGE_ROUTES.HOME}/[^/]+$`)
 
 export default function AppLayout (
     props : Readonly<IAuthLayoutProps>
@@ -19,6 +25,8 @@ export default function AppLayout (
     const {
         children
     } = props
+    
+    const pathname = usePathname()
 
     const {
         data,
@@ -29,16 +37,19 @@ export default function AppLayout (
         queryFn: () => userService.getUser()
     })
 
+    useEffect(() => {
+        if (data && !socket.connected) {
+            socket.connect()
+        }
+        return () => {
+            if (socket.connected) {
+                socket.disconnect()
+            }
+        }
+    },[data])
+
     if (isLoading) {
-        return (
-            <div
-                className="flex justify-center items-center flex-column h-full"
-            >
-                <ClipLoader 
-                    size={40}
-                />
-            </div>
-        )
+        return <Loader/>
     }
 
     if (error || !data) {
@@ -47,19 +58,21 @@ export default function AppLayout (
 
     return (
         <>
-            <div
-                className="flex flex-col h-full"
-            >
-                <Header
-                    userData={data}
-                />
+            <SocketContext.Provider value={socket}>
                 <div
-                    className="flex h-full"
+                    className="flex flex-col h-full"
                 >
-                    <Sidebar/>
-                    {children}
+                    <Header
+                        userData={data}
+                    />
+                    <div
+                        className="flex h-full"
+                    >
+                        {!pattern.test(pathname) && <Sidebar/>}
+                        {children}
+                    </div>
                 </div>
-            </div>
+            </SocketContext.Provider>
         </>
     )
 

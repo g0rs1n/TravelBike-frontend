@@ -19,10 +19,12 @@ import { authService } from '@/lib/services/auth/auth.service'
 import { catchError } from '@/lib/api/error'
 import { sanitizeService } from '@/lib/services/sanitize/sanitize.service'
 import { PAGE_ROUTES } from '@/lib/config/pages-url.config'
+import Loader from '@/components/ui/loader/Loader'
 
 export default function Auth () {
 
     const [isLoginForm, setIsLoginForm] = useState(false)
+    const [isRedirecting, setIsRedirecting] = useState(false)
     const {replace} = useRouter()
 
     const {
@@ -43,6 +45,7 @@ export default function Auth () {
             authService.login(data as ILoginData) :
             authService.register(data as IRegisterData),
         onSuccess: () => {
+            setIsRedirecting(true)
             replace(PAGE_ROUTES.HOME)
             reset()
         },
@@ -72,6 +75,10 @@ export default function Auth () {
         password: {
             message: formErrors.password?.message || null,
         },
+    }
+
+    if (isRedirecting) {
+        return <Loader/>
     }
 
     return (

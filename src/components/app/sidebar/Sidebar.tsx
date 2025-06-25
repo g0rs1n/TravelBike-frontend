@@ -1,6 +1,6 @@
 "use client"
 
-import Buttons from "../header/Buttons/Buttons"
+import Buttons from "./Buttons/Buttons"
 import NavMenu from "./NavMenu/NavMenu"
 
 export default function Sidebar () {
