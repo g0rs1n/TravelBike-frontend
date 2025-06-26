@@ -68,7 +68,7 @@ yarn
 ```
 # Replace with the address of your backend, if needed
 NEXT_PUBLIC_SERVER_URL=http://localhost:5001/api
-
+NEXT_PUBLIC_SOCKET_URL="ws://localhost:5001"
 ```
 
 ## 4. Start the frontend:
