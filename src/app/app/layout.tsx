@@ -1,7 +1,6 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import Header from "@/components/app/header/Header"
 import Sidebar from "@/components/app/sidebar/Sidebar"
@@ -9,8 +8,8 @@ import { userService } from "@/lib/services/user/user.service"
 import { IUserData } from "@/lib/types/types"
 import Loader from "@/components/ui/loader/Loader"
 import GlobalError from "../error"
-import { socket, SocketContext } from "@/lib/api/socket/socket"
 import { PAGE_ROUTES } from "@/lib/config/pages-url.config"
+import SocketProvider from "@/lib/providers/SocketProvider"
 
 interface IAuthLayoutProps {
     children: React.ReactNode
@@ -37,17 +36,6 @@ export default function AppLayout (
         queryFn: () => userService.getUser()
     })
 
-    useEffect(() => {
-        if (data && !socket.connected) {
-            socket.connect()
-        }
-        return () => {
-            if (socket.connected) {
-                socket.disconnect()
-            }
-        }
-    },[data])
-
     if (isLoading) {
         return <Loader/>
     }
@@ -58,7 +46,7 @@ export default function AppLayout (
 
     return (
         <>
-            <SocketContext.Provider value={socket}>
+            <SocketProvider>
                 <div
                     className="flex flex-col h-full"
                 >
@@ -72,7 +60,7 @@ export default function AppLayout (
                         {children}
                     </div>
                 </div>
-            </SocketContext.Provider>
+            </SocketProvider>
         </>
     )
 
