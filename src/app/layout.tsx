@@ -3,7 +3,8 @@ import { Nunito } from "next/font/google";
 import {
   SITE_NAME,
   SITE_DESCRIPTION,
-  SITE_LOGO_URL
+  SITE_LOGO_URL,
+  NO_INDEX_PAGE
 } from "../lib/constants/seo.constants"
 import {Toaster} from 'sonner'
 import QueryProvider from "@/lib/providers/QueryProvider";
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   icons: {
     icon: SITE_LOGO_URL
-  }
+  },
+  robots: NO_INDEX_PAGE,
 };
 
 export default function RootLayout({
