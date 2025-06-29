@@ -8,6 +8,7 @@ import {
 } from "../lib/constants/seo.constants"
 import {Toaster} from 'sonner'
 import QueryProvider from "@/lib/providers/QueryProvider";
+import NProgress from "@/components/ui/nprogress/NProgress";
 import "../styles/globals.scss"
 
 const nunito = Nunito({
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunito.variable}`}>
+          <NProgress/>
           <QueryProvider>
             {children}
             <Toaster
