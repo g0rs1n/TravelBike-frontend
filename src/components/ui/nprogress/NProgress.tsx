@@ -6,5 +6,6 @@ export default function NProgress () {
         color="#eeac33"
         height={3}
         initialPosition={0.08}
+        showSpinner={false}
     />
 }

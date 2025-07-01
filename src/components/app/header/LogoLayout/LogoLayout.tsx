@@ -29,7 +29,6 @@ export default function LogoLayout (props: ILogoLayoutProps) {
                             alt="user_icon"
                             width={55}
                             height={55}
-                            unoptimized
                         />
                     </Link>
                 </div>

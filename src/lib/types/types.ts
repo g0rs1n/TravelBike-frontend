@@ -10,7 +10,6 @@ export interface IUserData {
     username: string;
     firstName?: string;
     lastName?: string;
-    password: string;
     phone?: string;
     avatarPath: string;
 }

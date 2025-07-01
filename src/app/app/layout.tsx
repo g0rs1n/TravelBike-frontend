@@ -54,10 +54,14 @@ export default function AppLayout (
                         userData={data}
                     />
                     <div
-                        className="flex h-full"
+                        className="flex flex-1"
                     >
                         {!pattern.test(pathname) && <Sidebar/>}
-                        {children}
+                        <div
+                            className="flex-1"
+                        >
+                            {children}
+                        </div>
                     </div>
                 </div>
             </SocketProvider>

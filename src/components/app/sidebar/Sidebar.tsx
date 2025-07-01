@@ -7,7 +7,7 @@ export default function Sidebar () {
     return (
         <>
             <div
-                className="flex flex-col border-r-2 border-background-secondary 
+                className="flex h-full flex-col border-r-2 border-background-secondary 
                 py-2 gap-2 items-center w-[180px]"
             >
                 <NavMenu/>

@@ -187,7 +187,7 @@ export default function Auth () {
                         )} 
                     </div>
                     <div
-                        className='flex flex-col items-center gap-1'
+                        className='flex mt-[15px] flex-col items-center gap-1'
                     >
                         <Button
                             title={isLoginForm ? "Login" : "Sign Up"}
