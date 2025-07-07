@@ -1,21 +1,24 @@
 
-import { 
-    TRegisterAuthForm, 
-    TNameAuthFieldProps,
-    TValidationRules
+import {
+    TUseFormRegister,
+    TPath
 } from "@/lib/types/types";
+import {
+    RegisterOptions,
+    FieldValues,
+} from "react-hook-form";
 
-interface IFieldsProps {
+export interface IFieldsProps<TForm extends FieldValues> {
     id: string;
-    placeholder: string;
+    placeholder?: string;
     type: string;
-    name: TNameAuthFieldProps;
-    value?: string;
-    register?: TRegisterAuthForm;
-    validationRules?: TValidationRules;
+    name: TPath<TForm>;
+    register?: TUseFormRegister<TForm>;
+    validationRules?: RegisterOptions<TForm,TPath<TForm>>;
+    newStyles?: string; 
 }
 
-export default function Fields (props: IFieldsProps) {
+export default function Fields <TForm extends FieldValues> (props: IFieldsProps<TForm>) {
 
     const {
         id,
@@ -23,7 +26,8 @@ export default function Fields (props: IFieldsProps) {
         type,
         name,
         register,
-        validationRules
+        validationRules,
+        newStyles,
     } = props
 
     return (
@@ -31,7 +35,9 @@ export default function Fields (props: IFieldsProps) {
             id={id}
             type={type}
             placeholder={placeholder}
-            className="border-1 border-background-secondary rounded-sm px-[3px] py-[1px] focus:border-text"
+            className={
+                `border-1 border-background-secondary rounded-sm px-[3px] py-[1px] focus:border-text ${newStyles || ""}
+            `}
             autoComplete="off"
             {
                 ...(register && register(name, validationRules))

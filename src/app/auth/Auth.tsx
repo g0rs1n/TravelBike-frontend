@@ -19,6 +19,7 @@ import { authService } from '@/lib/services/auth/auth.service'
 import { catchError } from '@/lib/api/error'
 import { sanitizeService } from '@/lib/services/sanitize/sanitize.service'
 import { PAGE_ROUTES } from '@/lib/config/pages-url.config'
+import { authValidationRules } from '@/lib/validation/authValidation'
 import Loader from '@/components/ui/loader/Loader'
 
 export default function Auth () {
@@ -106,17 +107,13 @@ export default function Auth () {
                             >
                                 Username
                             </label>
-                            <Fields
+                            <Fields<IAuthForm>
                                 id="username"
                                 placeholder='Enter your username'
                                 type="text"
                                 name="username"
                                 register={register}
-                                validationRules={{
-                                    required: "Username is required",
-                                    minLength: { value: 3, message: "Username must be at least 3 characters" },
-                                    maxLength: { value: 20, message: "Username must be at most 20 characters" },
-                                }}
+                                validationRules={authValidationRules.username}
                             />
                             {inputErrors.username.message && (
                                 <p className="font-bold text-red-500 text-sm mt-[1px]">
@@ -134,20 +131,13 @@ export default function Auth () {
                         >
                             Email
                         </label>
-                        <Fields
+                        <Fields<IAuthForm>
                             id="email"
                             placeholder='Enter your email'
                             type="email"
                             name="email"
                             register={register}
-                            validationRules={{
-                                required: "Email is required",
-                                maxLength: { value: 254, message: "Email must be at most 254 characters",},
-                                pattern: {
-                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                    message: "Invalid email address",
-                                },
-                            }}
+                            validationRules={authValidationRules.email}
                         />
                         {inputErrors.email.message && (
                             <p className="font-bold text-red-500 text-sm mt-[1px]">
@@ -164,21 +154,13 @@ export default function Auth () {
                         >
                             Password
                         </label>
-                        <Fields
+                        <Fields<IAuthForm>
                             id="password"
                             placeholder='Enter your password'
                             type="password"
                             name="password"
                             register={register}
-                            validationRules={{
-                                required: "Password is required",
-                                minLength: { value: 8, message: "Password must be at least 8 characters"},
-                                maxLength: { value: 32,message: "Password must be at most 32 characters"},
-                                pattern: {
-                                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,32}$/,
-                                    message: "Password must contain at least one letter and one number",
-                                },
-                            }}
+                            validationRules={authValidationRules.password}
                         />
                         {inputErrors.password.message && (
                             <p className="font-bold text-red-500 text-sm mt-[1px]">

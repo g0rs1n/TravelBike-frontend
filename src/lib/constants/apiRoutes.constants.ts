@@ -13,6 +13,7 @@ class ROUTES {
     USER = {
         GET: this.BASE_USER_URL,
         LOGOUT: `${this.BASE_USER_URL}/logout`,
+        PATCH: this.BASE_USER_URL,
     }
 
 }
