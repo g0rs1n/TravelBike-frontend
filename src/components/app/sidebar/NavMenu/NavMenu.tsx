@@ -8,7 +8,7 @@ interface INavItems {
 }
 
 const navItems = [
-    {title: "Groups", href: "groups"},
+    {title: "Routes", href: "routes"},
 ]
 
 export default function NavMenu () {

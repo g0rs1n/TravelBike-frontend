@@ -57,8 +57,7 @@ export default function Auth () {
 
     const onSubmit: SubmitHandler<IAuthForm> = async (data) => {
         if (isValid) {
-            const newSanitizeData = sanitizeService.sanitizeObject(data)
-            toast.promise(mutateAsync(newSanitizeData), {
+            toast.promise(mutateAsync(data), {
                 loading: isLoginForm ? "Logging in..." : "Registering...",
                 success: (res) => res.message,
                 error: (error) => error.message

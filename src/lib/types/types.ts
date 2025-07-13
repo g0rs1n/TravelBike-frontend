@@ -58,3 +58,11 @@ export type TRegisterOptions<T extends FieldValues> = RegisterOptions<T>
 export type TUseFormRegister<T extends FieldValues> = UseFormRegister<T>
 export type TFieldError = FieldError
 export type TPath<T> = Path<T>
+
+/*
+    Route Page Types
+*/
+
+export type TabId = "chat" | "members"
+
+/*---*/

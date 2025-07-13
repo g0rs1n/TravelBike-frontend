@@ -15,8 +15,6 @@ interface IAuthLayoutProps {
     children: React.ReactNode
 }
 
-const pattern = new RegExp(`^${PAGE_ROUTES.HOME}/[^/]+$`)
-
 export default function AppLayout (
     props : Readonly<IAuthLayoutProps>
 ) {
@@ -24,8 +22,8 @@ export default function AppLayout (
     const {
         children
     } = props
-    
     const pathname = usePathname()
+    const isProfilePage = pathname.startsWith(PAGE_ROUTES.APP.PROFILE)
 
     const {
         data,
@@ -56,7 +54,7 @@ export default function AppLayout (
                     <div
                         className="flex flex-1"
                     >
-                        {!pattern.test(pathname) && <Sidebar/>}
+                        {!isProfilePage && <Sidebar/>}
                         <div
                             className="flex-1"
                         >
